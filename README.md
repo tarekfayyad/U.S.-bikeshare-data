@@ -1,4 +1,4 @@
-# U.S.-bikeshare-data
+# U.S. bikeshare data
 ## Overview
 calculate statistics and build an interactive environment where a user chooses the data and filter for a dataset (bikeshare data) to analyze
 ## Softwares needed:
@@ -32,4 +32,4 @@ Through writing code, I'm able to make an interactive user interface to answer t
 --What are the counts of each user type?<br>
 --What are the counts of gender?<br>
 --What is the earliest birth year (when the oldest person was born), most recent birth year, and most common birth year?<br>
---Ask user if he want to see rwa data?
+--Ask user if he want to see raw data?
