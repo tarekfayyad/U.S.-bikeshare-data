@@ -20,7 +20,7 @@ The datasets provided by Motivate, a bike share system provider in the US, conta
 The Chicago and New York City files also have the following two columns:<br>
 --Gender<br>
 --Birth Year<br>
-##Answering Questions
+## Answering Questions
 Through writing code, I'm able to make an interactive user interface to answer the following questions about the bike share data:<br><br>
 
 --What month occurs most often in the start time?<br>
@@ -32,3 +32,4 @@ Through writing code, I'm able to make an interactive user interface to answer t
 --What are the counts of each user type?<br>
 --What are the counts of gender?<br>
 --What is the earliest birth year (when the oldest person was born), most recent birth year, and most common birth year?<br>
+--Ask user if he want to see rwa data?
