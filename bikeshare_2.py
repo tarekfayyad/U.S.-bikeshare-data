@@ -8,7 +8,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
+    Asks user to specify a city, month, and day or all to analyze.
 
     Returns:
         (str) city - name of the city to analyze
@@ -72,12 +72,16 @@ def load_data(city, month, day):
         # create col containing day name to filter by
         df['weekday'] = df['Start Time'].dt.day_name()
     else:
+        # Apply filter with all city
         df1 = pd.read_csv('chicago.csv')
         df2 = pd.read_csv('new_york_city.csv')
         df3 = pd.read_csv('washington.csv')
         df = pd.concat([df1,df2,df3])
+        # convert start time column to date time to extract month and day
         df['Start Time'] = pd.to_datetime(df['Start Time'])
+        # create col containing month name to filter by
         df['month'] = df['Start Time'].dt.month_name()
+        # create col containing day name to filter by
         df['weekday'] = df['Start Time'].dt.day_name()
     if month != 'all' :
         # apply filter with required month
@@ -148,13 +152,15 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # display total travel time
+    # time in second - to turn it to days divide by 24*60*60
     sum_time_filt = df['Trip Duration'].sum()
-    print('Total travel time : ',sum_time_filt)
+    print('Total travel time : ',(sum_time_filt/86400).round(2),'Days')
 
 
     # display mean travel time
+    # time in second - to turn it to minutes divide by 60
     mean_travel_time = df['Trip Duration'].mean()
-    print('Mean travel time : ',mean_travel_time)
+    print('Mean travel time : ',(mean_travel_time/60).round(2), 'Minutes')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -195,6 +201,8 @@ def user_stats(df):
     print('-'*40)
 
 def display_data(df):
+    # ask user to display raw data
+    # display the first 5 rows and so on upon user request
     view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n').lower()
     start_loc = 0
     while True:
